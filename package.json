@@ -1,0 +1,26 @@
+{
+  "name": "authplatform",
+  "version": "1.0.0",
+  "description": "Authplatform to create and login for users",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiriRaj12/AuthPlatform.git"
+  },
+  "author": "er.giriraj12@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GiriRaj12/AuthPlatform/issues"
+  },
+  "homepage": "https://github.com/GiriRaj12/AuthPlatform#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "redis": "^5.9.0"
+  }
+}
