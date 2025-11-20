@@ -12,11 +12,6 @@ export default class UserService {
     }
 
 
-    validatePassword(passWord){
-
-    }
-
-
     validateUserEmail(email){
         if(!email || typeof email !== 'string')
             throw new Error("[INVALID_EMAIL] email cannot be null or empty")
