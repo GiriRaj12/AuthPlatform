@@ -4,7 +4,7 @@ Basic Authentication Platform
 
 APIS : 
 
-1. /api/login [POST]
+1. /api/user/login [POST]
 
     Payload:
 
@@ -16,7 +16,7 @@ APIS :
     Response:
 
 
-2. /api/register [POST]
+2. /api/user/register [POST]
 
     Payload:
 
@@ -25,7 +25,7 @@ APIS :
             'password' : 'Password' // At-least 8 characters, with one special character and one number
         }
 
-3. /api/token/refresh [GET] 
+3. /api/user/token/refresh [GET] 
 
     Headers
         Authorization: Bearer (Produced Token)
