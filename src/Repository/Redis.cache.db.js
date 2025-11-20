@@ -15,7 +15,7 @@ export default class RedisHelper {
             RedisHelper.REDIS_CLIENT = createClient({url: `redis://${this.REDIS_HOST}:${this.REDIS_PORT}`});
 
             if(!RedisHelper.REDIS_CLIENT.isOpen)
-                RedisHelper.REDIS_CLIENT.connect()
+                RedisHelper.REDIS_CLIENT.connect();
         }
 
 
@@ -25,12 +25,12 @@ export default class RedisHelper {
         RedisHelper.REDIS_CLIENT.on("error", () => {console.log("Redis Connection Error !")});
     }
 
-    getValue(key){
-        RedisHelper.REDIS_CLIENT.
+    async getValue(key){
+        return await RedisHelper.REDIS_CLIENT.get(key);
     }
 
-    putValue(key, value){
-
+    async putValue(key, value){
+        return await RedisHelper.REDIS_CLIENT.put(key, value);
     }
 
 }

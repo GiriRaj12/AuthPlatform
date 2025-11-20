@@ -9,6 +9,8 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - REDIS_USER_NAME=my_user
+      - REDIS_PASSWORD=my_password
     depends_on:
       - redis
     volumes:
@@ -16,11 +18,17 @@ services:
       - /app/node_modules
 
   redis:
-    image: redis-7-alpine
+    image: redis:8.0-alpine
     container_name: redis_cache
     ports:
       - "6379:6379"
-    command: ["redis-server", "--appendonly", "yes"]
+    environment:
+      - REDIS_USER=my_user
+      - REDIS_PASSWORD=my_password
+    command: >
+      redis-server
+      --requirepass mypassword
+      --user myuser
     volumes:
       - redis-data:/data
 
