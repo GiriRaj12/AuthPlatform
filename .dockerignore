@@ -1,1 +1,5 @@
 /node_modules
+
+.env
+
+UserAuth.postman_collection.json

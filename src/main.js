@@ -4,6 +4,8 @@ import path from 'path';
 import UserRouter from './Router_Controllers/UserRouter.js';
 import YAML from 'yamljs';
 import swaggerUi from 'swagger-ui-express';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const NODE_PORT = process.env.NODE_PORT ? process.env.NODE_PORT : 3000;
@@ -13,7 +15,7 @@ app.get("/health", (req, res)=> {
 })
 
 
-const openApiPath = path.join(process.cwd(), 'schema.api.yml')
+const openApiPath = path.join(process.cwd(), 'schema.api.yml');
 
 const openApiDocument = YAML.load(openApiPath);
 

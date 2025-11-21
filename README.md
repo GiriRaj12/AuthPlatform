@@ -1,8 +1,11 @@
-# AuthPlatform
+## AuthPlatform
 Basic Authentication Platform
 
+Stack : 
+ - Node JS (express)
+ - DB (redis (cache-db))
 
-APIS : 
+#### APIS : 
 
 1. /api/user/login [POST]
 
@@ -30,14 +33,30 @@ APIS :
     Headers
         Authorization: Bearer (Produced Token)
 
+4. /api/user/token/validate [GET] 
+
+    Headers
+        Authorization: Bearer (Produced Token)
+
 
 Please visit -> /api/docs to see the swagger ui.
 
 Running Application Guidance:
 
-Pre-Requisit: 
-    - install docker 
 
-After:
-    - docker-compose up should bring up both api and redis server to server the application 
+#### Pre-Requisit: 
+    - install docker (https://docs.docker.com/engine/install/)
+
+#### After:
+    - docker-compose up (-d for detached space) Should bring up both api and redis server to serve the application 
     - make sure ports 3000 and 6379 is free in your system to serve redis and application layers
+
+
+#### To Test : 
+
+1. Install postman 
+2. Import Collection [Collection_File](./UserAuth.postman_collection.json)
+3. Test Individually or Group vise with Postman 
+
+
+Thanks for looking into the readme. I hope this works as expected - Please reach out if any er.giriraj12@gmail.com

@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken'
-
+import dotenv from 'dotenv';
+dotenv.config();
 
 const SECRET = process.env.TOKEN_SECRET || 'USER_APP_SECRET';
 const expiry = "2h";
@@ -12,10 +13,11 @@ export default class JWTService {
 
     verifyToken(token){
         try {
-            return jwt.verify(token, SECRET);
+            jwt.verify(token, SECRET);
+            return true;
         } catch (error) {
             console.log(err);
-            return null;
+            return false;
         }
     }
 

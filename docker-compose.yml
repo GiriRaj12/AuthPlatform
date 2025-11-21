@@ -9,8 +9,8 @@ services:
     environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
-      - REDIS_USER_NAME=my_user
-      - REDIS_PASSWORD=my_password
+      - REDIS_USER_NAME=user1
+      - REDIS_PASSWORD=user1_password
     depends_on:
       - redis
     volumes:
@@ -22,15 +22,9 @@ services:
     container_name: redis_cache
     ports:
       - "6379:6379"
-    environment:
-      - REDIS_USER=my_user
-      - REDIS_PASSWORD=my_password
-    command: >
-      redis-server
-      --requirepass mypassword
-      --user myuser
+    command: ["redis-server", "/usr/local/etc/redis/redis.conf"]
     volumes:
-      - redis-data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
 
 volumes:
   redis-data:
