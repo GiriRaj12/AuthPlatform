@@ -58,7 +58,6 @@ export default class UserService {
 
     async loginUser(email, password){
         try {
-            console.log("EMail, passowrd", email, password);
             this.checkEmailPasswordAndThrowErrorIfInValid(email, password);
             await this.redisRepository.checkAndReConnect();
             const exisitingPassword = await this.redisRepository.getValue(email);
@@ -84,7 +83,6 @@ export default class UserService {
 
             const existingValues = await this.redisRepository.getValue(email);
 
-            console.log("exisiting VAlue", existingValues);
 
             if(existingValues)
                 return this.getResponseStructure(400, "[INVALID_EMAIL] email aldready exists please login", true);
