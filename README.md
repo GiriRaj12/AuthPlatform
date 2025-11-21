@@ -17,6 +17,13 @@ Stack :
         }
     
     Response:
+        {
+            "status" : HTTP_STATUS_CODE ( 200, 401, 400),
+            "message" : "ERROR MESSAGE IN CASE OF NOT 200,
+            "data" : {
+                "token" : "JWT Token in case of successfull login"
+            }
+        }
 
 
 2. /api/user/register [POST]
@@ -27,16 +34,43 @@ Stack :
             'email': 'proper_email_formated_email',
             'password' : 'Password' // At-least 8 characters, with one special character and one number
         }
+    
+    Response:
+        {
+            "status" : HTTP_STATUS_CODE ( 200, 401, 400),
+            "message" : "ERROR MESSAGE IN CASE OF NOT 200,
+            "data" : {
+             "message": "Registered successfully please login in " in terms of 200 (OK)   
+            }
+        }
 
 3. /api/user/token/refresh [GET] 
 
     Headers
         Authorization: Bearer (Produced Token)
+    
+    Response:
+        {
+            "status" : HTTP_STATUS_CODE ( 200, 400),
+            "message" : "ERROR MESSAGE IN CASE OF NOT 200,
+            "data" : {
+             "token": "Refreshed new token"  
+            }
+        }
 
 4. /api/user/token/validate [GET] 
 
     Headers
         Authorization: Bearer (Produced Token)
+    
+    Response:
+        {
+            "status" : HTTP_STATUS_CODE ( 200, 400),
+            "message" : "ERROR MESSAGE IN CASE OF NOT 200,
+            "data" : {
+                "message": "TOKEN ACTIVE"  
+            }
+        }
 
 
 Please visit -> /api/docs to see the swagger ui.
