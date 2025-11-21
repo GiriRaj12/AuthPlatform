@@ -1,96 +1,138 @@
-## AuthPlatform
-Basic Authentication Platform
+# AuthPlatform
 
-Stack : 
- - Node JS (express)
- - DB (redis (cache-db))
+A simple and efficient authentication platform built using **Node.js**
+and **Redis**.\
+This project provides user registration, login, token validation, and
+token refresh functionality.
 
-#### APIS : 
+## 🚀 Stack
 
-1. /api/user/login [POST]
+-   **Node.js** (Express)
+-   **Redis** (Cache Database)
+-   **JWT** for authentication
+-   **Swagger UI** for API documentation
 
-    Payload:
+## 📌 API Endpoints
 
-        body: {
-            email: 'email',
-            password: 'password'
-        }
-    
-    Response: 
-        body: {
-            "status" : HTTP_STATUS_CODE ( 200, 401, 400),
-            "message" : "ERROR MESSAGE IN CASE OF NOT 200,
-            "data" : {
-                "token" : "JWT Token in case of successfull login"
-            }
-        }
+### **1. `/api/user/login`** --- **POST**
 
+Authenticate a user and return a JWT token.
 
-2. /api/user/register [POST]
+**Payload**
 
-    Payload:
+``` json
+{
+  "email": "email",
+  "password": "password"
+}
+```
 
-        body: {
-            'email': 'proper_email_formated_email',
-            'password' : 'Password' // At-least 8 characters, with one special character and one number
-        }
-    
-    Response: 
-        body: {
-            "status" : HTTP_STATUS_CODE ( 200, 401, 400),
-            "message" : "ERROR MESSAGE IN CASE OF NOT 200,
-            "data" : {
-             "message": "Registered successfully please login in " in terms of 200 (OK)   
-            }
-        }
+**Response**
 
-3. /api/user/token/refresh [GET] 
+``` json
+{
+  "status": 200,
+  "message": "Success or error message",
+  "data": {
+    "token": "JWT token in case of successful login"
+  }
+}
+```
 
-    Headers
-        Authorization: Bearer (Produced Token)
-    
-    Response: 
-        body: {
-            "status" : HTTP_STATUS_CODE ( 200, 400),
-            "message" : "ERROR MESSAGE IN CASE OF NOT 200,
-            "data" : {
-             "token": "Refreshed new token"  
-            }
-        }
+### **2. `/api/user/register`** --- **POST**
 
-4. /api/user/token/validate [GET] 
+Register a new user.
 
-    Headers
-        Authorization: Bearer (Produced Token)
-    
-    Response: 
-        body: {
-            "status" : HTTP_STATUS_CODE ( 200, 400),
-            "message" : "ERROR MESSAGE IN CASE OF NOT 200,
-            "data" : {
-                "message": "TOKEN ACTIVE"  
-            }
-        }
+**Payload**
 
+``` json
+{
+  "email": "proper_email_formatted",
+  "password": "Password"
+}
+```
 
-Please visit -> /api/docs to see the swagger ui.
+**Password Requirements** - Minimum **8 characters** - At least **1
+special character** - At least **1 number**
 
-Running Application Guidance:
+**Response**
 
+``` json
+{
+  "status": 200,
+  "message": "Success or error message",
+  "data": {
+    "message": "Registered successfully, please log in"
+  }
+}
+```
 
-#### Pre-Requisit: 
-    - install docker (https://docs.docker.com/engine/install/)
+### **3. `/api/user/token/refresh`** --- **GET**
 
-#### After:
-    - docker-compose up (-d for detached space) Should bring up both api and redis server to serve the application 
-    - make sure ports 3000 and 6379 is free in your system to serve redis and application layers
+Generate a new token for an authenticated user.
 
+**Headers**
 
-#### To Test : 
+    Authorization: Bearer <token>
 
-1. Install postman 
-2. Import Collection [Collection_File](./UserAuth.postman_collection.json)
-3. Test Individually or Group vise with Postman 
+**Response**
 
+``` json
+{
+  "status": 200,
+  "message": "Success or error message",
+  "data": {
+    "token": "Refreshed JWT token"
+  }
+}
+```
 
-Thanks for looking into the readme. I hope this works as expected - Please reach out if any er.giriraj12@gmail.com
+### **4. `/api/user/token/validate`** --- **GET**
+
+Validate if a provided token is still active.
+
+**Headers**
+
+    Authorization: Bearer <token>
+
+**Response**
+
+``` json
+{
+  "status": 200,
+  "message": "Success or error message",
+  "data": {
+    "message": "TOKEN ACTIVE"
+  }
+}
+```
+
+## 📘 Swagger Documentation
+
+Visit `/api/docs` to view the Swagger UI.
+
+## 🛠️ Running the Application
+
+### Prerequisite
+
+Install Docker: https://docs.docker.com/engine/install/
+
+### Start the Application
+
+``` bash
+docker-compose up
+# or
+docker-compose up -d
+```
+
+Ensure ports **3000** and **6379** are free.
+
+## 🧪 Testing
+
+1.  Install Postman\
+2.  Import **UserAuth.postman_collection.json**\
+3.  Test endpoints individually or as a group.
+
+## 📩 Contact
+
+For questions: **er.giriraj12@gmail.com**
