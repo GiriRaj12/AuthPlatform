@@ -133,6 +133,12 @@ Ensure ports **3000** and **6379** are free.
 2.  Import **UserAuth.postman_collection.json**\
 3.  Test endpoints individually or as a group.
 
+## Use of LLM's 
+
+1. LLM's are used for documentation references as it easier to search and implement examples
+2. LLM's are used in this Readme documentaiton mostly to clean up the process not to provide content
+3. Code wise - not a copy paste from LLM its mostly written refering documentation exmaples.
+
 ## 📩 Contact
 
 For questions: **er.giriraj12@gmail.com**
