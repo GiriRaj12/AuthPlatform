@@ -16,8 +16,8 @@ Stack :
             password: 'password'
         }
     
-    Response:
-        {
+    Response: 
+        body: {
             "status" : HTTP_STATUS_CODE ( 200, 401, 400),
             "message" : "ERROR MESSAGE IN CASE OF NOT 200,
             "data" : {
@@ -35,8 +35,8 @@ Stack :
             'password' : 'Password' // At-least 8 characters, with one special character and one number
         }
     
-    Response:
-        {
+    Response: 
+        body: {
             "status" : HTTP_STATUS_CODE ( 200, 401, 400),
             "message" : "ERROR MESSAGE IN CASE OF NOT 200,
             "data" : {
@@ -49,8 +49,8 @@ Stack :
     Headers
         Authorization: Bearer (Produced Token)
     
-    Response:
-        {
+    Response: 
+        body: {
             "status" : HTTP_STATUS_CODE ( 200, 400),
             "message" : "ERROR MESSAGE IN CASE OF NOT 200,
             "data" : {
@@ -63,8 +63,8 @@ Stack :
     Headers
         Authorization: Bearer (Produced Token)
     
-    Response:
-        {
+    Response: 
+        body: {
             "status" : HTTP_STATUS_CODE ( 200, 400),
             "message" : "ERROR MESSAGE IN CASE OF NOT 200,
             "data" : {
